@@ -6,8 +6,19 @@ class TreesController < ApplicationController
 	def create
 		@tree = Tree.new(tree_params)
  
-		@tree.save
-  	redirect_to @tree
+		if @tree.save
+    redirect_to @tree
+		else
+		  render 'new'
+		end
+	end
+
+	def index
+		@trees = Tree.all
+	end
+
+	def edit
+		@tree = Tree.find(params[:id])
 	end
 
 	def show
