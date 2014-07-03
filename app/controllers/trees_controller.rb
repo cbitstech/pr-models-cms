@@ -27,8 +27,10 @@ class TreesController < ApplicationController
 	end
 
 	def update
+	@tree = Tree.find(params[:id])
+
     respond_to do |format|
-      if @tree.update
+      if @tree.update(tree_params)
         format.html { redirect_to @tree}
         format.json { head :no_content }
       else

@@ -7,12 +7,15 @@
   <tr>
     <th>Author</th>
     <th>Accuracy</th>
+    <th colspan="2"></th>
   </tr>
  
-  <% @trees.each do |tree| %>
-    <tr>
-      <td><%= tree.author %></td>
-      <td><%= tree.accuracy %></td>
-    </tr>
-  <% end %>
+<% @trees.each do |tree| %>
+  <tr>
+    <td><%= tree.author %></td>
+    <td><%= tree.accuracy %></td>
+    <td><%= link_to 'Show', tree_path(tree) %></td>
+    <td><%= link_to 'Edit', edit_tree_path(tree) %></td>
+  </tr>
+<% end %>
 </table>

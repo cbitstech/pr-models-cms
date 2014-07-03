@@ -15,6 +15,7 @@ class TreesController < ApplicationController
 				format.html { render 'new' }
 				format.json { render json: @tree.errors, status: :unprocessable_entity }
 			end
+		end
 	end
 
 	def index
@@ -27,13 +28,14 @@ class TreesController < ApplicationController
 
 	def update
     respond_to do |format|
-      if @tree.update
+      if @tree.update(tree_params)
         format.html { redirect_to @tree}
         format.json { head :no_content }
       else
         format.html { render 'edit' }
         format.json { render json: @tree.errors, status: :unprocessable_entity }
       end
+		end
 	end
 
 	def show
@@ -45,5 +47,4 @@ class TreesController < ApplicationController
 			params.require(:tree).permit(:author, :accuracy)
 		end
 end
-end
-end
+
