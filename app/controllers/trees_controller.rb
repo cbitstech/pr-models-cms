@@ -5,12 +5,15 @@ class TreesController < ApplicationController
 
 	def create
 		@tree = Tree.new(tree_params)
- 
-		if @tree.save
-    redirect_to @tree
-		else
-		  render 'new'
-		end
+
+		respond_to do |format|
+				  if @tree.save
+				    format.html { redirect_to @tree, notice: 'Your metadata was saved.' }
+				    format.json { render action: 'show', status: :created, location: @tree }
+				  else
+				    format.html { render action: 'new' }
+				    format.json { render json: @treer.errors, status: :unprocessable_entity }
+			end
 	end
 
 	def index
@@ -24,6 +27,18 @@ class TreesController < ApplicationController
 	def show
 		@tree = Tree.find(params[:id])
 	end
+
+	def update
+    respond_to do |format|
+      if @tree.update(tree_params)
+        format.html { redirect_to @tree, notice: 'Tree metadata successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @tree.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
 private
 	def tree_params
