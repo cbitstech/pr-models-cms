@@ -1,5 +1,8 @@
 <h1>Tree Models</h1>
  
+<p>Create your own model metadata prior to model upload: <%= link_to 'New Tree', new_tree_path %>
+</p>
+
 <table>
   <tr>
     <th>Author</th>
