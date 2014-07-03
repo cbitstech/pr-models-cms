@@ -6,18 +6,16 @@ class TreesController < ApplicationController
 
 	def create
 		@tree = Tree.new(tree_params)
-
-	if @tree.save
-    redirect_to @tree
-  else
-    render 'new'
-  end
+	
+		respond_to do |format|
+			if @tree.save
+				format.html{redirect_to @tree}
+		  	format.json{render :json => @tree, :status => :created, :location => @tree }
+			else
+				format.html { render 'new' }
+				format.json { render json: @tree.errors, status: :unprocessable_entity }
+			end
 	end
-
-	private
-		def tree_params
-			params.require(:tree).permit(:author, :accuracy)
-		end
 
 	def index
 		@trees = Tree.all
@@ -28,17 +26,24 @@ class TreesController < ApplicationController
 	end
 
 	def update
-  	@tree = Tree.find(params[:id])
- 
-		if @tree.update(tree_params)
-		  redirect_to @tree
-		else
-		  render 'edit'
-		end
+    respond_to do |format|
+      if @tree.update
+        format.html { redirect_to @tree}
+        format.json { head :no_content }
+      else
+        format.html { render 'edit' }
+        format.json { render json: @tree.errors, status: :unprocessable_entity }
+      end
 	end
 
 	def show
 		@tree = Tree.find(params[:id])
 	end
-end
 
+	private
+		def tree_params
+			params.require(:tree).permit(:author, :accuracy)
+		end
+end
+end
+end
