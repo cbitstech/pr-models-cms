@@ -2,8 +2,10 @@
 
 one:
   author: MyString
-  accuracy: 1
+  accuracy: MyString
+  float: MyString
 
 two:
   author: MyString
-  accuracy: 1
+  accuracy: MyString
+  float: MyString

@@ -10,7 +10,7 @@ class TreesController < ApplicationController
 		respond_to do |format|
 			if @tree.save
 				format.html{redirect_to @tree}
-		  	format.json{render :json => @tree, :status => :created, :location => @tree }
+				format.json{render :json => @tree, :status => :created, :location => @tree }
 			else
 				format.html { render 'new' }
 				format.json { render json: @tree.errors, status: :unprocessable_entity }
@@ -24,9 +24,16 @@ class TreesController < ApplicationController
 
 	def edit
 		@tree = Tree.find(params[:id])
+		
+		def upload
+		  post = Tree_File.save(params[:upload])
+		  render :text => "File has been uploaded successfully"
+		end
 	end
 
 	def update
+	@tree = Tree.find(params[:id])
+
     respond_to do |format|
       if @tree.update(tree_params)
         format.html { redirect_to @tree}
@@ -44,7 +51,7 @@ class TreesController < ApplicationController
 
 	private
 		def tree_params
-			params.require(:tree).permit(:author, :accuracy)
+			params.require(:tree).permit(:author, :tree_amount, :note, :parser, :pr_id, :model_type, :accuracy)
 		end
 end
 

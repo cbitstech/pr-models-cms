@@ -11,13 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140701163748) do
+ActiveRecord::Schema.define(version: 20140707211503) do
+
+  create_table "tree_files", force: true do |t|
+    t.binary   "model"
+    t.integer  "tree_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tree_files", ["tree_id"], name: "index_tree_files_on_tree_id"
 
   create_table "trees", force: true do |t|
     t.string   "author"
-    t.integer  "accuracy"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "pr_id"
+    t.string   "model_type"
+    t.string   "parser"
+    t.string   "note"
+    t.integer  "tree_amount"
+    t.float    "accuracy"
   end
 
 end
