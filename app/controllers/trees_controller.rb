@@ -24,6 +24,14 @@ class TreesController < ApplicationController
 
 	def edit
 		@tree = Tree.find(params[:id])
+
+		respond_to do |format|
+			if @tree.save
+				format.html{redirect_to @tree}
+			else
+				format.html { render 'edit' }
+			end
+		end
 	end
 
 	def upload
@@ -53,7 +61,7 @@ class TreesController < ApplicationController
 
 	private
 		def tree_params
-			params.require(:tree).permit(:author, :tree_amount, :note, :parser, :pr_id, :model_type, :accuracy)
+			params.require(:tree).permit(:author, :tree_amount, :note, :parser, :pr_id, :model_type, :accuracy, :model)
 		end
 end
 

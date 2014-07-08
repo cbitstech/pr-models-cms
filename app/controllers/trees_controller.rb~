@@ -24,10 +24,18 @@ class TreesController < ApplicationController
 
 	def edit
 		@tree = Tree.find(params[:id])
+
+		respond_to do |format|
+			if @tree.save
+				format.html{redirect_to @tree}
+			else
+				format.html { render 'edit' }
+			end
+		end
 	end
 
 	def upload
-		uploaded_io = params[:tree][:tree_file]
+		uploaded_io = params[:tree_file]
 		File.open(Rails.root.join('models', 'uploads', uploaded_io.original_filename), 'wb') do |file|
 		  file.write(uploaded_io.read)
 		end
@@ -49,11 +57,12 @@ class TreesController < ApplicationController
 
 	def show
 		@tree = Tree.find(params[:id])
+		@tree.model = TreeFile.find_by(tree_id: @tree.id)
 	end
 
 	private
 		def tree_params
-			params.require(:tree).permit(:author, :tree_amount, :note, :parser, :pr_id, :model_type, :accuracy)
+			params.require(:tree).permit(:author, :tree_amount, :note, :parser, :pr_id, :model_type, :accuracy, :model)
 		end
 end
 

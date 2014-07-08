@@ -5,10 +5,14 @@ class TreeFilesController < ApplicationController
 	end
 
  def create
-		@tree = Tree.find(params[:tree_id])
-    @tree_file = @tree.tree_files.new(params[:model])
+		@tree = Tree.find(params[:tree])
+    @tree_file = @tree.tree_files.create(params[:model])
     redirect_to tree_path(@tree)
-  end
+	end
+
+	def create
+		@user = User.create( user_params )
+	end
 
 	def edit
 		@tree = TreeFile.find(params[:id])
@@ -24,6 +28,7 @@ class TreeFilesController < ApplicationController
 
   private
     def tree_file_params
-      params.require(:tree_file).permit(:model, :tree_id)
+      params.require(:tree).permit(:model, :tree_id)
     end
+
 end
