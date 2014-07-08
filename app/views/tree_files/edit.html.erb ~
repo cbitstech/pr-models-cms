@@ -33,9 +33,13 @@
   <%= @tree.parser %>
 </p>
 
-<p>
-	<strong>Model File</strong>
-	<%= @tree.model.url %>
-</p>
+<h3>Look OK? Add your model file now:</h3>
+	 
+	<%= form_for([@tree_file]) do |f| %>
+		<%= f.file_field :model %>
+    <%= f.submit %>
+	<% end %>
+
+<b>See Errors? <%= link_to 'Edit the metadata.', edit_tree_path(@tree) %>
 
 <%= link_to 'Index', trees_path %>

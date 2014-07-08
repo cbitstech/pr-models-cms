@@ -24,15 +24,10 @@ class TreesController < ApplicationController
 
 	def edit
 		@tree = Tree.find(params[:id])
-		
-		def upload
-		  post = Tree_File.save(params[:upload])
-		  render :text => "File has been uploaded successfully"
-		end
 	end
 
 	def upload
-		uploaded_io = params[:tree][:tree_file]
+		uploaded_io = params[:tree_file]
 		File.open(Rails.root.join('models', 'uploads', uploaded_io.original_filename), 'wb') do |file|
 		  file.write(uploaded_io.read)
 		end

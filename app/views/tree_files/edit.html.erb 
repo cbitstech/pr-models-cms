@@ -33,9 +33,12 @@
   <%= @tree.parser %>
 </p>
 
-<p>
-	<strong>Model File</strong>
-	<%= @tree.model.url %>
-</p>
+<h3>Look OK? Add your model file now:</h3>
+	 
+	<%= form_for @tree_file, :url => tree_files_path, :html => { :multipart => true } do |form| %>
+		<%= form.file_field :model %>
+	<% end %>
+
+<b>See Errors? <%= link_to 'Edit the metadata.', edit_tree_path(@tree) %>
 
 <%= link_to 'Index', trees_path %>
