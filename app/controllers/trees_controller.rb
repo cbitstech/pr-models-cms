@@ -35,7 +35,7 @@ class TreesController < ApplicationController
 	end
 
 	def upload
-		uploaded_io = params[:tree_file]
+		uploaded_io = params[:model]
 		File.open(Rails.root.join('models', 'uploads', uploaded_io.original_filename), 'wb') do |file|
 		  file.write(uploaded_io.read)
 		end

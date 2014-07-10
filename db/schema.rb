@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140707211503) do
+ActiveRecord::Schema.define(version: 20140710141345) do
 
   create_table "tree_files", force: true do |t|
     t.binary   "model"
@@ -32,6 +32,10 @@ ActiveRecord::Schema.define(version: 20140707211503) do
     t.string   "note"
     t.integer  "tree_amount"
     t.float    "accuracy"
+    t.string   "tree_file_file_name"
+    t.string   "tree_file_content_type"
+    t.integer  "tree_file_file_size"
+    t.datetime "tree_file_updated_at"
   end
 
 end
