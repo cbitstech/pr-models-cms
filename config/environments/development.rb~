@@ -8,6 +8,9 @@ Rails.application.configure do
 
   # Do not eager load code on boot.
   config.eager_load = false
+	
+	#find files
+	config.serve_static_assets  = true
 
 	# let paperclip know where imagemagick is
 	Paperclip.options[:command_path] = "/usr/bin/"

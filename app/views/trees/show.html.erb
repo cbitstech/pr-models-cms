@@ -35,7 +35,12 @@
 
 <p>
 	<strong>Model File:</strong>
-	<%= @tree.model.url %>
+	<%= link_to @tree.file.url %>
+</p>
+
+<p>
+	<strong>Model String:</strong>
+	<%= @tree.model %>
 </p>
 
 <%= link_to 'Index', trees_path %>

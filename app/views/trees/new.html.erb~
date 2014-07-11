@@ -1,23 +1,6 @@
 <h1>New Tree Metadata</h1>
 
-<script>
-	function json()  {
-			var metadata = { "tree" : 
-												{ "author" : "JSON Two", 
-													"model_type" : "forest",
-													"parser" : "default",
-													"tree_amount" : 12323,
-													"pr_id" : "usr_132134123213123",
-													"note" : "This is a test",
-													"accuracy" : 0.95 }
-										 };
-											
-			$.post("/trees", metadata);
-			return false;
-	};
-</script>
-
-<%= form_for :tree, url: trees_path do |f| %>
+<%= form_for @tree, url: tree_path, html: {multipart: true} do |f| %>
 
 	<% if @tree.errors.any? %>
 	  <div id="error_explanation">
@@ -37,7 +20,7 @@
 
   <p>
     <%= f.label :parser %><br>
-    <%= f.text_field :model_type
+    <%= f.text_field :parser %>
   </p>
 
   <p>
@@ -48,11 +31,6 @@
   <p>
     <%= f.label :tree_amount %><br>
     <%= f.text_field :tree_amount %>
-  </p>
-
-  <p>
-    <%= f.label :accuracy %><br>
-    <%= f.text_area :accuracy %>
   </p>
 
   <p>
@@ -69,10 +47,14 @@
     <%= f.label :note %><br>
     <%= f.text_area :note %>
   </p>
+
+	  <p>
+    <%= f.label :file %><br>
+   	<%= f.file_field :file %> </br>
+  </p>
  
   <p>
     <%= f.submit %>
-		<script>$( "input[name='commit']" ).on( "click", json );</script>
   </p>
 <% end %>
 

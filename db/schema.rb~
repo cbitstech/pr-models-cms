@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140711164118) do
+ActiveRecord::Schema.define(version: 20140710144721) do
 
   create_table "trees", force: true do |t|
     t.string   "author"
@@ -27,11 +27,6 @@ ActiveRecord::Schema.define(version: 20140711164118) do
     t.string   "tree_file_content_type"
     t.integer  "tree_file_file_size"
     t.datetime "tree_file_updated_at"
-    t.string   "file_file_name"
-    t.string   "file_content_type"
-    t.integer  "file_file_size"
-    t.datetime "file_updated_at"
-    t.string   "model"
   end
 
 end
