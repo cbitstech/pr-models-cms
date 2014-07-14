@@ -28,6 +28,7 @@ class TreesController < ApplicationController
 		respond_to do |format|
 			if @tree.save
 				format.html{redirect_to @tree}
+				format.json{render :json => @tree, :status => :created, :location => @tree }
 			else
 				format.html { render 'edit' }
 			end
@@ -51,6 +52,7 @@ class TreesController < ApplicationController
 
 	def show
 		@tree = Tree.find(params[:id])
+		@tree.model = File.read(@tree.file.path)
 	end
 
 	private
