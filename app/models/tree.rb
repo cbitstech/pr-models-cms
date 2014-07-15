@@ -7,5 +7,6 @@ class Tree < ActiveRecord::Base
   :size => { :in => 0..10.megabytes }
 
 	validates :accuracy, numericality: true #requires number input, converts to float
+	validates :pr_id, :presence => true
 
 end

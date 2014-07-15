@@ -1,3 +1,4 @@
+
 <h1>New Tree Metadata</h1>
 
 <%= form_for @tree, url: {action: "create"}, html: {multipart: true } do |f| %>
@@ -25,7 +26,7 @@
   </p>
 
   <p>
-    <%= f.label "Target Domain" %><br>
+    <%= f.label "Target Domain / PR Id" %><br>
     <%= f.text_area :pr_id %>
   </p>
  
@@ -60,5 +61,7 @@
     <%= f.submit %>
   </p>
 <% end %>
+
+<%= link_to 'Index', trees_path %>
 
 

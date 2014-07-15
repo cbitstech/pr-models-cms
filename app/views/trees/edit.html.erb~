@@ -1,3 +1,4 @@
+<h1> <%= link_to 'Index', trees_path %></h1>
 <h1>Editing tree metadata</h1>
  
 <%= form_for @tree, :url => tree_path, :html => { :multipart => true }, method: :patch do |f| %>
@@ -12,17 +13,8 @@
     </ul>
   </div>
   <% end %>
-<p>
-    <%= f.label :author %><br>
-    <%= f.text_field :author %>
-  </p>
 
-  <p>
-    <%= f.label :parser %><br>
-    <%= f.text_field :parser %>
-  </p>
-
-  <p>
+	  <p>
     <%= f.label :model_type %><br>
     <%= f.text_field :model_type %>
   </p>
@@ -32,19 +24,30 @@
     <%= f.text_field :tree_amount %>
   </p>
 
-  <p>
-    <%= f.label "Target Domain" %><br>
-    <%= f.text_area :pr_id %>
-  </p>
- 
-  <p>
+	  <p>
     <%= f.label :accuracy %><br>
     <%= f.text_area :accuracy %>
+  </p>
+
+
+  <p>
+    <%= f.label :parser %><br>
+    <%= f.text_field :parser %>
+  </p>
+
+  <p>
+    <%= f.label "Target Domain / Pr"  %><br>
+    <%= f.text_area :pr_id %>
   </p>
 
   <p>
     <%= f.label :note %><br>
     <%= f.text_area :note %>
+  </p>
+
+	<p>
+    <%= f.label :author %><br>
+    <%= f.text_field :author %>
   </p>
 
 
@@ -55,6 +58,4 @@
 <% end %>
 
 </br>
-
-<%= link_to 'Back', trees_path %>
 
