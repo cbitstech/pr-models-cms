@@ -1,8 +1,6 @@
-<p>
-  <strong>Author:</strong>
-  <%= @tree.author %>
-</p>
- 
+
+<h1>Tree Model Metadata</h1>
+
 <p>
   <strong>Accuracy:</strong>
   <%= @tree.accuracy %>
@@ -14,8 +12,18 @@
 </p>
 
 <p>
-  <strong>Number of Trees:</strong>
+  <strong>Number of Trees (Useful for forests):</strong>
   <%= @tree.tree_amount %>
+</p>
+
+<p>
+  <strong>Purple Robot Name:</strong>
+  <%= @tree.pr_id %>
+</p>
+
+<p>
+  <strong>Parser Choice:</strong>
+  <%= @tree.parser %>
 </p>
 
 <p>
@@ -24,13 +32,8 @@
 </p>
 
 <p>
-  <strong>Purple Robot ID:</strong>
-  <%= @tree.pr_id %>
-</p>
-
-<p>
-  <strong>Parser Choice:</strong>
-  <%= @tree.parser %>
+  <strong>Author:</strong>
+  <%= @tree.author %>
 </p>
 
 <p>

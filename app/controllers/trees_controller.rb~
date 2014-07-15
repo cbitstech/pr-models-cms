@@ -41,7 +41,6 @@ class TreesController < ApplicationController
     respond_to do |format|
       if @tree.update(tree_params)
 				@tree.file = params[:tree][:file]
-				@tree.model = File.read('@tree.file.path')
         format.html { redirect_to @tree}
         format.json { head :no_content }
       else
@@ -53,6 +52,7 @@ class TreesController < ApplicationController
 
 	def show
 		@tree = Tree.find(params[:id])
+		@tree.model = File.read(@tree.file.path)
 	end
 
 	private

@@ -13,15 +13,6 @@
 		</ul>
 	  </div>
 	<% end %>
-  <p>
-    <%= f.label :author %><br>
-    <%= f.text_field :author %>
-  </p>
-
-  <p>
-    <%= f.label :parser %><br>
-    <%= f.text_field :parser %>
-  </p>
 
   <p>
     <%= f.label :model_type %><br>
@@ -34,7 +25,7 @@
   </p>
 
   <p>
-    <%= f.label :pr_id %><br>
+    <%= f.label "Target Domain" %><br>
     <%= f.text_area :pr_id %>
   </p>
  
@@ -43,19 +34,33 @@
     <%= f.text_area :accuracy %>
   </p>
 
+	<p>
+    <%= f.label "Parser - Usually Default" %><br>
+    <%= f.text_field :parser %>
+  </p>
+
   <p>
     <%= f.label :note %><br>
     <%= f.text_area :note %>
   </p>
-
+	
 	  <p>
-    <%= f.label :file %><br>
+    <%= f.label :author %><br>
+    <%= f.text_field :author %>
+  </p>
+
+<h2> Add the model file (extension .txt) </h2>
+	  <p>
    	<%= f.file_field :file %> </br>
   </p>
  
+	<p> ### </p>
+
   <p>
     <%= f.submit %>
   </p>
 <% end %>
+
+<%= link_to 'Index', trees_path %>
 
 

@@ -1,8 +1,4 @@
-<p>
-  <strong>Author:</strong>
-  <%= @tree.author %>
-</p>
- 
+
 <p>
   <strong>Accuracy:</strong>
   <%= @tree.accuracy %>
@@ -14,7 +10,7 @@
 </p>
 
 <p>
-  <strong>Number of Trees:</strong>
+  <strong>Number of Trees (Useful for forests):</strong>
   <%= @tree.tree_amount %>
 </p>
 
@@ -24,7 +20,7 @@
 </p>
 
 <p>
-  <strong>Purple Robot ID:</strong>
+  <strong>Purple Robot Name:</strong>
   <%= @tree.pr_id %>
 </p>
 
@@ -34,8 +30,13 @@
 </p>
 
 <p>
+  <strong>Author:</strong>
+  <%= @tree.author %>
+</p>
+
+<p>
 	<strong>Model File:</strong>
-	<%= link_to 'file', @tree.file.url %>
+	<%= link_to 'Right Here', @tree.file.url %>
 </p>
 
 <p>

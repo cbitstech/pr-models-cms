@@ -24,15 +24,6 @@ class TreesController < ApplicationController
 
 	def edit
 		@tree = Tree.find(params[:id])
-
-		respond_to do |format|
-			if @tree.save
-				format.html{redirect_to @tree}
-				format.json{render :json => @tree, :status => :created, :location => @tree }
-			else
-				format.html { render 'edit' }
-			end
-		end
 	end
 
 	def update

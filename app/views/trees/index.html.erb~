@@ -1,21 +1,21 @@
 <h1>Tree Models</h1>
  
-<p>Create your own model metadata prior to model upload: <%= link_to 'New Tree', new_tree_path %>
-</p>
+<h2>Add a new model: <%= link_to 'New Tree', new_tree_path %></h2>
 
 <table>
   <tr>
-    <th>Author</th>
+    <th>Domain</th>
     <th>Accuracy</th>
     <th colspan="2"></th>
   </tr>
  
 <% @trees.each do |tree| %>
   <tr>
-    <td><%= tree.author %></td>
+    <td><%= tree.pr_id %></td>
     <td><%= tree.accuracy %></td>
-    <td><%= link_to 'Show', tree_path(tree) %></td>
-    <td><%= link_to 'Edit', edit_tree_path(tree) %></td>
+    <td><%= link_to 'HTML', tree_path(tree) %></td>
+		<td><%= link_to 'JSON', polymorphic_path( tree, :format => :json ) %></td>
+    <td> --- <%= link_to 'Edit', edit_tree_path(tree) %></td>
   </tr>
 <% end %>
 </table>

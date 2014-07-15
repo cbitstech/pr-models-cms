@@ -1,6 +1,6 @@
 <h1>Editing tree metadata</h1>
  
-<%= form_for @tree, :url => tree_path, :html => { :multipart => true } do |f| %>
+<%= form_for @tree, :url => tree_path, :html => { :multipart => true }, method: :patch do |f| %>
   <% if @tree.errors.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(@tree.errors.count, "error") %> prohibited
@@ -12,9 +12,29 @@
     </ul>
   </div>
   <% end %>
-  <p>
+<p>
     <%= f.label :author %><br>
     <%= f.text_field :author %>
+  </p>
+
+  <p>
+    <%= f.label :parser %><br>
+    <%= f.text_field :parser %>
+  </p>
+
+  <p>
+    <%= f.label :model_type %><br>
+    <%= f.text_field :model_type %>
+  </p>
+
+  <p>
+    <%= f.label :tree_amount %><br>
+    <%= f.text_field :tree_amount %>
+  </p>
+
+  <p>
+    <%= f.label "Target Domain" %><br>
+    <%= f.text_area :pr_id %>
   </p>
  
   <p>
@@ -22,13 +42,19 @@
     <%= f.text_area :accuracy %>
   </p>
 
+  <p>
+    <%= f.label :note %><br>
+    <%= f.text_area :note %>
+  </p>
 
-<h2> Add the Model File: </h2>
 
-		<%= f.file_field :tree_file %> </br>
+<h2> Change the Model File.txt (only recommended for errors):</h2>
+
+		<%= f.file_field :file %> </br></br>
 		<%= f.submit %>
 <% end %>
 
+</br>
 
 <%= link_to 'Back', trees_path %>
 

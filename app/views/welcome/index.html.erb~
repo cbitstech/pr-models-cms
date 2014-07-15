@@ -1,2 +1,2 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<h1>This is Petosky</h1>
+<h2>Petosky is a Rails app for <% link_to 'managing decision tree models.', trees_path %> </h2>

@@ -16,6 +16,7 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # For File I/O
 gem "paperclip", "~> 4.1"
+gem 'fog'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

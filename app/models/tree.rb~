@@ -6,9 +6,6 @@ class Tree < ActiveRecord::Base
   :content_type => { :content_type => "text/plain" },
   :size => { :in => 0..10.megabytes }
 
-	attr_accessor :file_content_type
-	attr_accessor :file_file_name
-	attr_accessor :file_file_size
-  attr_accessor :file_updated_at
+	validates :accuracy, numericality: true
 
 end
