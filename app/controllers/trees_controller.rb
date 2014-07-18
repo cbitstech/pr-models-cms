@@ -1,4 +1,12 @@
 class TreesController < ApplicationController
+ 
+  protect_from_forgery with: :null_session
+ 
+  def index
+    @articles = Article.all
+  end
+ 
+  # snipped for brevity
 
 	def new
   	@tree = Tree.new
@@ -6,7 +14,7 @@ class TreesController < ApplicationController
 
 	def create
 		@tree = Tree.create(tree_params)
-	
+
 		respond_to do |format|
 			if @tree.save
 				format.html{redirect_to @tree}
@@ -43,7 +51,9 @@ class TreesController < ApplicationController
 
 	def show
 		@tree = Tree.find(params[:id])
-		@tree.model = File.read(@tree.file.path)
+		if @tree.file.exists? == true
+			@tree.model = File.read(@tree.file.path)
+		end
 	end
 
 	private

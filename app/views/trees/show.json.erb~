@@ -1,6 +1,6 @@
 {
-"accuracy" : <%= @tree.accuracy %>,
-"model_type" :  "<%= @tree.model_type %>",
-"name" : "<%= @tree.pr_id %>",
-"model" : "<%= @tree.model %>"
+"type" : <%= @event.type %>,
+"date_emitted" :  "<%= @event.date_emitted %>",
+"date_recorded" : "<%= @event.date_recorded %>",
+"payload" : "<%= @event.payload.html_safe %>"
 }

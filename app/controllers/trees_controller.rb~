@@ -1,4 +1,12 @@
 class TreesController < ApplicationController
+ 
+  http_basic_authenticate_with name: "user", password: "cbits", except: [:index, :show]
+ 
+  def index
+    @articles = Article.all
+  end
+ 
+  # snipped for brevity
 
 	def new
   	@tree = Tree.new
@@ -6,7 +14,7 @@ class TreesController < ApplicationController
 
 	def create
 		@tree = Tree.create(tree_params)
-	
+
 		respond_to do |format|
 			if @tree.save
 				format.html{redirect_to @tree}
@@ -24,15 +32,6 @@ class TreesController < ApplicationController
 
 	def edit
 		@tree = Tree.find(params[:id])
-
-		respond_to do |format|
-			if @tree.save
-				format.html{redirect_to @tree}
-				format.json{render :json => @tree, :status => :created, :location => @tree }
-			else
-				format.html { render 'edit' }
-			end
-		end
 	end
 
 	def update
@@ -52,7 +51,9 @@ class TreesController < ApplicationController
 
 	def show
 		@tree = Tree.find(params[:id])
-		@tree.model = File.read(@tree.file.path)
+		if @tree.file.exists? == true
+			@tree.model = File.read(@tree.file.path)
+		end
 	end
 
 	private
