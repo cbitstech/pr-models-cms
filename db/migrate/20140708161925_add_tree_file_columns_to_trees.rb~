@@ -1,0 +1,4 @@
+class AddTreeFileColumnsToTrees < ActiveRecord::Migration
+  def change
+  end
+end

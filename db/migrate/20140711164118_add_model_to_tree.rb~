@@ -1,0 +1,4 @@
+class AddModelToTree < ActiveRecord::Migration
+  def change
+  end
+end

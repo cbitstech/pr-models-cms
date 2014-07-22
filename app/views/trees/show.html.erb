@@ -1,0 +1,49 @@
+
+<h1><%= link_to 'Index', trees_path %></h1>
+
+<h1>Tree Model Metadata</h1>
+
+<p>
+  <strong>Accuracy:</strong>
+  <%= @tree.accuracy %>
+</p>
+
+<p>
+  <strong>Model Type:</strong>
+  <%= @tree.model_type %>
+</p>
+
+<p>
+  <strong>Number of Trees (Useful for forests):</strong>
+  <%= @tree.tree_amount %>
+</p>
+
+<p>
+  <strong>Purple Robot Name:</strong>
+  <%= @tree.pr_id %>
+</p>
+
+<p>
+  <strong>Parser Choice:</strong>
+  <%= @tree.parser %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @tree.note %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @tree.author %>
+</p>
+
+<p>
+	<strong>Model File:</strong>
+	<%= link_to 'Right Here', @tree.file.url %>
+</p>
+
+<p>
+	<strong>Model String:</strong>
+	<%= @tree.model %>
+</p>

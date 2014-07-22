@@ -1,0 +1,41 @@
+<%= stylesheet_link_tag "application", media: "all" %>
+
+<h1>Tree Models</h1>
+
+<b>To create a new model using POST with a JSON object: </b>
+
+<p>Use curl:</p> 
+
+<p>curl -X POST -H "Content-Type: application/json" -d '{ "tree" :
+	{ 
+	"author" : "your name here" ,  
+	"tree_amount" : "14" , 
+	"note" : "any notes you have" ,
+	"parser" : "default" ,
+	"pr_id" : "some feature of interest - not optional" ,
+	"model_type" : "tree - not optional" ,
+	"accuracy" : "0" , 
+	"model" : " your matlab text here - not optional"
+	}
+}' localhost:3000/trees.json </p>
+
+ 
+<h2><%= link_to 'Add a new tree model', new_tree_path %></h2>
+
+<table>
+  <tr>
+    <th>Domain</th>
+    <th>Accuracy</th>
+    <th colspan="5"></th>
+  </tr>
+ 
+<% @trees.each do |tree| %>
+  <tr>
+    <td><%= tree.pr_id %></td>
+    <td><%= tree.accuracy %></td>
+    <td><%= link_to 'HTML', tree_path(tree) %></td>
+		<td><%= link_to 'JSON', polymorphic_path( tree, :format => :json ) %></td>
+    <td> --- <%= link_to 'Edit', edit_tree_path(tree) %></td>
+  </tr>
+<% end %>
+</table>

@@ -1,0 +1,66 @@
+<h1> <%= link_to 'Index', trees_path %> </h1>
+
+<h1>New Tree Metadata</h1>
+
+<%= form_for @tree, url: {action: "create"}, html: {multipart: true } do |f| %>
+
+	<% if @tree.errors.any? %>
+	  <div id="error_explanation">
+		<h2><%= pluralize(@tree.errors.count, "error") %> prohibited
+		  this tree metadata from being saved:</h2>
+		<ul>
+		<% @tree.errors.full_messages.each do |msg| %>
+		  <li><%= msg %></li>
+		<% end %>
+		</ul>
+	  </div>
+	<% end %>
+
+  <p>
+    <%= f.label :model_type %><br>
+    <%= f.text_field :model_type %>
+  </p>
+
+  <p>
+    <%= f.label :tree_amount %><br>
+    <%= f.text_field :tree_amount %>
+  </p>
+
+  <p>
+    <%= f.label "Target Domain / PR Id" %><br>
+    <%= f.text_area :pr_id %>
+  </p>
+ 
+  <p>
+    <%= f.label :accuracy %><br>
+    <%= f.text_area :accuracy %>
+  </p>
+
+	<p>
+    <%= f.label "Parser - Usually Default" %><br>
+    <%= f.text_field :parser %>
+  </p>
+
+  <p>
+    <%= f.label :note %><br>
+    <%= f.text_area :note %>
+  </p>
+	
+	  <p>
+    <%= f.label :author %><br>
+    <%= f.text_field :author %>
+  </p>
+
+<h2> Add the model file (extension .txt) </h2>
+	  <p>
+   	<%= f.file_field :file %> </br>
+  </p>
+ 
+	<p> ### </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+
