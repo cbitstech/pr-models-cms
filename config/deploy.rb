@@ -2,9 +2,9 @@
 lock '3.2.1'
 
 set :application, 'pr-models-cms'
-set :repo_url, 'git@github.com:cbitstech/ fetch(:application) }.git'
-# set :rvm-type, :system
-# set :rvm_ruby_version, '2.1.1'
+set :repo_url, "git@github.com:cbitstech/#{ fetch(:application) }.git"
+set :rvm_type, :system
+set :rvm_ruby_version, '2.1.1'
 
 # Default branch is :master
 ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
