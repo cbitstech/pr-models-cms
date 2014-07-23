@@ -1,6 +1,5 @@
 GEM
   remote: https://rubygems.org/
-  remote: https://rubygems.org/
   specs:
     actionmailer (4.1.4)
       actionpack (= 4.1.4)
@@ -235,7 +234,7 @@ DEPENDENCIES
   jquery-rails
   pg
   prawn
-  rails (>= 4.1.2)
+  rails (>= 4.1.1)
   rails_admin
   rake (~> 10.3.1)
   rspec-rails (~> 3.0.0.beta2)
