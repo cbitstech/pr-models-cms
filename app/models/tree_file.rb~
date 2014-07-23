@@ -1,2 +1,0 @@
-class TreeFile < ActiveRecord::Base
-end

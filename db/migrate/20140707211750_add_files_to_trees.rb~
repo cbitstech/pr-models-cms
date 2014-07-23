@@ -1,4 +1,0 @@
-class AddFilesToTrees < ActiveRecord::Migration
-  def change
-  end
-end
