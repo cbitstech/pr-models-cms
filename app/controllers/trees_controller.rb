@@ -1,11 +1,7 @@
 class TreesController < ApplicationController
  
   protect_from_forgery with: :null_session
- 
-  def index
-    @articles = Article.all
-  end
- 
+
   # snipped for brevity
 
 	def new

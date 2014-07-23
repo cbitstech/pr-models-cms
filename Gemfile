@@ -3,14 +3,19 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.2'
+
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
+
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
@@ -39,9 +44,33 @@ gem 'spring',        group: :development
 # Use unicorn as the app server
 # gem 'unicorn'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+group :staging, :production do
+  # email exceptions
+  gem 'exception_notification', '~> 4.1.0.rc1'
+end
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.1'
+
+  # Provides a console debugger
+  # gem 'debugger'
+end
+
+group :development do
+  # These 2 gems are used for debugging
+  # gem 'better_errors'
+  # gem 'binding_of_caller'
+
+  # code conventions and quality
+  gem 'rubocop', '~> 0.23.0'
+
+  gem 'capistrano', '~> 3.2.0', require: false
+  gem 'capistrano-rails', '~> 1.1', require: false
+  gem 'capistrano-rvm', '~> 0.1', require: false
+  gem 'capistrano-bundler', '~> 1.1.2'
+  gem 'spring-commands-rspec'
+end
 

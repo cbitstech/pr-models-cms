@@ -1,10 +1,7 @@
 class TreesController < ApplicationController
  
-  http_basic_authenticate_with name: "user", password: "cbits", except: [:index, :show]
- 
-  def index
-    @articles = Article.all
-  end
+  protect_from_forgery with: :null_session
+
  
   # snipped for brevity
 
